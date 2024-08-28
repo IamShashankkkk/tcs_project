@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Payment</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+header {
+    background-color: #0099cc;
+    color: white;
+    padding: 10px 20px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.instructions {
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.click-here-btn {
+    background-color: #0099cc;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.bill-details {
+    padding: 20px;
+}
+.nav {
+            background-color: #e0e0e0;
+            padding: 10px;
+            text-align: center;
+        }
+        .nav a {
+            color: #333;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+h2 {
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.bill-summary, .consumer-details {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.bill-summary td, .consumer-details th, .consumer-details td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.bill-summary td:last-child, .consumer-details td:last-child {
+    text-align: right;
+}
+
+.consumer-details th {
+    background-color: #0099cc;
+    color: white;
+}
+
+.payment-options {
+    padding: 0 20px;
+}
+
+.payment-instruction {
+    color: #ff6600;
+    font-weight: bold;
+}
+
+.radio-group {
+    margin-top: 10px;
+}
+
+.radio-group label {
+    margin-right: 20px;
+}
+
+.button-group {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.pay-now-btn, .back-btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.pay-now-btn {
+    background-color: #0099cc;
+    color: white;
+}
+
+.back-btn {
+    background-color: #ccc;
+    color: black;
+}
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="home.html">HOME</a>
+        <a href="quick_pay.html">QUICK PAY</a>
+        <a href="complaint.html">REGISTER COMPLAINT</a>
+        <a href="status.html">COMPLAINT STATUS</a>
+    </div>
+    <div class="container">
+        <header>
+            <h1>Bill payment</h1>
+        </header>
+        <div class="bill-details">
+            <h2>Bill Details</h2>
+            <table class="bill-summary">
+                <tr>
+                    <td>Bill Amount</td>
+                    <td id="billAmount">₹ 2,028.00</td>
+                </tr>
+                <tr>
+                    <td>Total Payable Amount</td>
+                    <td id="totalPayable">₹ 2,028.00</td>
+                </tr>
+            </table>
+            <table class="consumer-details">
+                <tr>
+                    <th>Consumer Number</th>
+                    <th>Bill Number</th>
+                    <th>Payable Amount</th>
+                </tr>
+                <tr>
+                    <td>1122334455662</td>
+                    <td>34523456</td>
+                    <td id="cn">Rs. 2,028</td>
+                </tr>
+            </table>
+        </div>
+        <div class="payment-options">
+            <p class="payment-instruction">Kindly select your mode of payment</p>
+            <div class="radio-group">
+                <label><input type="radio" name="paymentMode" value="credit"> Credit Card</label>
+                <label><input type="radio" name="paymentMode" value="debit"> Debit Card</label>
+            </div>
+        </div>
+        <div class="button-group">
+            <button id="payNow" class="pay-now-btn" onclick="window.location.href='card_details.html'">Pay now</button>
+            <button id="backToHome" class="back-btn" onclick="window.location.href='home.html'">Back to Home</button>
+        </div>
+    </div>
+    <script src="bill_payment.js"></script>
+</body>
+</html>

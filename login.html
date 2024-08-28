@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #FF8C00;
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .input-icon {
+            position: relative;
+        }
+        .input-icon input {
+            padding-right: 30px;
+        }
+        .input-icon::after {
+            content: '👤';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .input-icon.password::after {
+            content: '🔒';
+        }
+        .sign-in-button {
+            background-color: #1E90FF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        .sign-in-button:hover {
+            background-color: #1873CC;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Login</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="userId">USER ID:</label>
+                <div class="input-icon">
+                    <input type="text" id="userId" placeholder="Enter your User ID" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">PASSWORD:</label>
+                <div class="input-icon password">
+                    <input type="password" id="password" placeholder="Enter your Password" required>
+                </div>
+            </div>
+            <button type="submit" class="sign-in-button">Sign In</button>
+            <a href="reg.html">do you register?</a>
+        </form>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Here you would typically handle the login process
+            // For this demo, we'll just redirect to the home page
+            window.location.href = 'home.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick EBill - Payment Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            background-color: #f0f0f0;
+            padding: 10px;
+        }
+        .logo {
+            color: #800000;
+            font-weight: bold;
+        }
+        .nav {
+            background-color: #e0e0e0;
+            padding: 10px;
+        }
+        .nav a {
+            color: #333;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .user-info {
+            text-align: right;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+        .logout-btn {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .success-message {
+            background-color: #0099cc;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+        }
+        .total-amount {
+            padding: 10px;
+            font-size: 18px;
+        }
+        .transaction-details {
+            padding: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #0099cc;
+            color: white;
+        }
+        .buttons {
+            padding: 20px;
+            text-align: center;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .btn-home {
+            background-color: #808080;
+            color: white;
+            border: none;
+        }
+        .btn-download {
+            background-color: #0099cc;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="logo">Quick EBill</span>
+        </div>
+        <div class="nav">
+            <a href="home.html">HOME</a>
+            <a href="quick_pay.html">QUICK PAY</a>
+            <a href="complaint.html">REGISTER COMPLAINT</a>
+            <a href="status.html">COMPLAINT STATUS</a>
+        </div>
+        <div class="user-info">
+            <button class="logout-btn" onclick="window.location.href='login.html'">LOGOUT</button>
+        </div>
+        <div class="success-message">
+            Payment Done Successfully ..
+        </div>
+        <div class="total-amount">
+            Total amount paid: ₹2028.0
+        </div>
+        <div class="transaction-details">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Transaction Number</th>
+                        <th>Receipt Number</th>
+                        <th>Transaction Date</th>
+                        <th>Transaction Type</th>
+                        <th>Payment Type</th>
+                        <th>Payment Gateway</th>
+                        <th>Section</th>
+                        <th>Consumer Number</th>
+                        <th>Paid Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>345980345</td>
+                        <td>2134567890976</td>
+                        <td>2022-02-10 12:05:18.78</td>
+                        <td>DC</td>
+                        <td>Registered User</td>
+                        <td>EFG Payment Gateway</td>
+                        <td>ABC</td>
+                        <td>1122334455662</td>
+                        <td>₹ 2028.0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="buttons">
+            <button class="btn btn-home">Back to Home</button>
+            <button class="btn btn-download">Download</button>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.btn-home').addEventListener('click', function() {
+            window.location.href = 'home.html';
+        });
+        
+        document.querySelector('.btn-download').addEventListener('click', function() {
+            alert('Downloading transaction details...');
+            // Implement download functionality here
+        });
+    </script>
+</body>
+</html>

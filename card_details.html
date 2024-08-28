@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick EBill - Payment Screen</title>
+    <style>
+     body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .header {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .logo {
+            color: #800000;
+            font-weight: bold;
+        }
+        .nav {
+            background-color: #e0e0e0;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .nav a {
+            color: #333;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .user-info {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        .logout-btn {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .payment-screen {
+            background-color: #0099cc;
+            color: white;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .payment-method {
+            color: #0000ff;
+            margin-bottom: 20px;
+        }
+        .card-logos img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .expiration-date select {
+            width: 48%;
+            display: inline-block;
+        }
+        .expiration-date select:first-child {
+            margin-right: 4%;
+        }
+        .payment-amount {
+            background-color: #e6f3ff;
+            padding: 10px;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .make-payment-btn {
+            background-color: #ffd700;
+            border: none;
+            padding: 10px 20px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .cancel-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="home.html">HOME</a>
+            <a href="quick_pay.html">QUICK PAY</a>
+            <a href="complaint.html">REGISTER COMPLAINT</a>
+            <a href="status.html">COMPLAINT STATUS</a>
+        </div>
+        <div class="user-info">
+            <button class="logout-btn" onclick="window.location.href='login.html'">LOGOUT</button>
+        </div>
+        <div class="payment-screen">
+            Payment Screen
+        </div>
+        <div class="payment-method">
+            Pay by Credit Card
+        </div>
+        <div class="card-logos">
+            <img src="visa.png" alt="Visa">
+            <img src="mastercard.png" alt="Mastercard">
+        </div>
+        <form id="paymentForm">
+            <div class="form-group">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" id="cardNumber" placeholder="Enter card number" maxlength="16" required>
+            </div>
+            <div class="form-group expiration-date">
+                <label>Expiration Date</label>
+                <select id="expirationMonth" required>
+                    <option value="">Month</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="02">03</option>
+                    <option value="02">04</option>
+                    <option value="02">05</option>
+                    <option value="02">06</option>
+                    <option value="02">07</option>
+                    <option value="02">08</option>
+                    <option value="02">09</option>
+                    <option value="02">10</option>
+                    <option value="02">11</option>
+                    <option value="02">12</option>
+                    <!-- Add options for months 03-12 -->
+                </select>
+                <select id="expirationYear" required>
+                    <option value="">Year</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                    <option value="2029">2029</option>
+                    <!-- Add more years as needed -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV/ CVC</label>
+                <input type="text" id="cvv" placeholder="CVV" maxlength="3" required>
+            </div>
+            <div class="form-group">
+                <label for="cardHolderName">Card Holder Name</label>
+                <input type="text" id="cardHolderName" placeholder="Enter card holder name" required>
+            </div>
+        </form>
+        <div class="payment-amount">
+            Payment Amount: ₹ <span id="paymentAmount">2,028.00</span>
+        </div>
+        <button class="make-payment-btn" onclick="window.location.href='paid.html'">Make Payment</button>
+        <div class="cancel-link">
+            <a href="bill_payment.html">Cancel</a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Get the payment amount from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const amount = urlParams.get('amount') || '2,028.00';
+
+    // Set the payment amount
+    document.getElementById('paymentAmount').textContent = amount;
+
+    // Handle Make Payment button
+    document.querySelector('.make-payment-btn').addEventListener('click', function() {
+        // Here you would typically validate the form and process the payment
+        alert(`Processing payment of ₹${amount}`);
+        // After successful payment, you might want to redirect to a confirmation page
+        // window.location.href = 'payment_confirmation.html';
+    });
+});
+    </script>
+</body>
+</html>

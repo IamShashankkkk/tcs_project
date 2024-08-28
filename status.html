@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick EBill - Check Complaint Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #fff;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .nav {
+            background-color: #e0e0e0;
+            padding: 10px;
+            text-align: center;
+        }
+        .nav a {
+            color: #333;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .logout-btn {
+            background-color: #ff7f50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        main {
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            background-color: #00a0e3;
+            color: white;
+            padding: 10px;
+            margin: -20px -20px 20px -20px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        form {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        #resetBtn {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+        }
+        #getStatusBtn {
+            background-color: #00a0e3;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <a href="home.html">HOME</a>
+            <a href="quick_pay.html">QUICK PAY</a>
+            <a href="complaint.html">REGISTER COMPLAINT</a>
+            <a href="status.html">COMPLAINT STATUS</a>
+        </div>
+            <div>
+                <button class="logout-btn" onclick="window.location.href='login.html'">LOGOUT</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1>Check Your Complaint Here</h1>
+        <form id="complaintStatusForm">
+            <label for="complaintNumber">Complaint Number:</label>
+            <input type="text" id="complaintNumber" maxlength="6" required>
+            <button type="button" id="resetBtn">Reset</button>
+            <button type="submit" id="getStatusBtn">Get Complaint Status</button>
+        </form>
+        <div id="statusResult"></div>
+    </main>
+    <script>
+        document.getElementById('complaintStatusForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const complaintNumber = document.getElementById('complaintNumber').value;
+            // Here you would typically send a request to a server to get the actual status
+            // For this example, we'll just simulate a response
+            const status = getRandomStatus();
+            document.getElementById('statusResult').innerHTML = `
+                <h2>Complaint Status</h2>
+                <p>Complaint Number: ${complaintNumber}</p>
+                <p>Status: ${status}</p>
+            `;
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            document.getElementById('complaintNumber').value = '';
+            document.getElementById('statusResult').innerHTML = '';
+        });
+
+        function getRandomStatus() {
+            const statuses = ['Pending', 'In Progress', 'Resolved', 'Closed'];
+            return statuses[Math.floor(Math.random() * statuses.length)];
+        }
+    </script>
+</body>
+</html>

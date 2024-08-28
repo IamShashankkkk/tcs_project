@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Successfully</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f7ff;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            background-color: #87CEEB;
+            color: white;
+            padding: 10px;
+            margin: -20px -20px 20px -20px;
+            text-align: center;
+        }
+        .customer-details {
+            margin-top: 20px;
+        }
+        .back-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registered Successfully</h1>
+        <p>Thank you for registering with Ebill Application</p>
+        <div class="customer-details">
+            <p>Customer ID: <span id="customerId"></span></p>
+            <p>Customer Name: <span id="customerName"></span></p>
+            <p>Mobile Number: <span id="mobileNumber"></span></p>
+        </div>
+        <button class="back-button" onclick="window.location.href='login.html'">Back to Login</button>
+    </div>
+    <script>
+        // Parse URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('customerId').textContent = urlParams.get('id');
+        document.getElementById('customerName').textContent = urlParams.get('name');
+        document.getElementById('mobileNumber').textContent = urlParams.get('mobile');
+    </script>
+</body>
+</html>

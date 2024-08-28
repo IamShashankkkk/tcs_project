@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick EBill - File New Complaint</title>
+    <style>
+        #complaintNumberModal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #fff;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .nav {
+            background-color: #e0e0e0;
+            padding: 10px;
+            text-align: center;
+        }
+        .nav a {
+            color: #333;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .logout-btn {
+            background-color: #ff7f50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        main {
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            background-color: #00a0e3;
+            color: white;
+            padding: 10px;
+            margin: -20px -20px 20px -20px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .buttons {
+            grid-column: span 2;
+            text-align: right;
+        }
+        button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        #submit {
+            background-color: #00a0e3;
+            color: white;
+            border: none;
+        }
+        #cancel {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <a href="home.html">HOME</a>
+            <a href="quick_pay.html">QUICK PAY</a>
+            <a href="complaint.html">REGISTER COMPLAINT</a>
+            <a href="status.html">COMPLAINT STATUS</a>
+        </div>
+            <div>
+                <button class="logout-btn" onclick="window.location.href='login.html'">LOGOUT</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1>File New Complaint</h1>
+        <form id="complaintForm">
+            <div>
+                <label for="complaintType">Complaint/Service Type:</label>
+                <select id="complaintType" required>
+                    <option value="STREET LIGHT RELATED">STREET LIGHT RELATED</option>
+                </select>
+            </div>
+            <div>
+                <label for="landmark">Landmark:</label>
+                <input type="text" id="landmark" required>
+            </div>
+            <div>
+                <label for="category">Category:</label>
+                <select id="category" required>
+                    <option value="STREETLIGHT-NOT SWITCHED O">STREETLIGHT-NOT SWITCHED O</option>
+                </select>
+            </div>
+            <div>
+                <label for="consumerNumber">Consumer Number:</label>
+                <input type="text" id="consumerNumber" maxlength="13" required>
+            </div>
+            <div>
+                <label for="contactPerson">Contact Person:</label>
+                <input type="text" id="contactPerson" maxlength="10" required>
+            </div>
+            <div>
+                <label for="problemDescription">Problem Description:</label>
+                <textarea id="problemDescription" required>STREETLIGHT-NOT SWITCHED OFF</textarea>
+            </div>
+            <div>
+                <label for="mobileNumber">Mobile Number:</label>
+                <input type="tel" id="mobileNumber" maxlength="10" required>
+            </div>
+            <div>
+                <label for="address">Address:</label>
+                <textarea id="address" required></textarea>
+            </div>
+            <div class="buttons">
+                <button type="button" id="cancel">Cancel</button>
+                <button type="submit" id="submit">Submit Complaint</button>
+            </div>
+        </form>
+    </main>
+    <script>
+        document.getElementById('complaintForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Here you would typically send the form data to a server
+            alert('Complaint submitted successfully!');
+        });
+
+        document.getElementById('cancel').addEventListener('click', function() {
+            if(confirm('Are you sure you want to cancel this complaint?')) {
+                document.getElementById('complaintForm').reset();
+            }
+        });
+    </script>
+</body>
+</html>

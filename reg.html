@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register New User</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Register New User</h1>
+        <form id="registrationForm">
+            <section>
+                <h2>Consumer Details</h2>
+                <div class="form-group">
+                    <label for="consumerNumber"><span class="required">*</span> Consumer Number:</label>
+                    <input type="tel" id="consumerNumber" placeholder="Consumer Number" maxlength="13" required>
+                </div>
+                <div class="form-group">
+                    <label for="billNumber"><span class="required">*</span> Bill Number:</label>
+                    <input type="tel" id="billNumber" placeholder="last 5 digits" maxlength="5" required>
+                </div>
+            </section>
+
+            <section>
+                <h2>User Details</h2>
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <select id="title">
+                        <option value="">Select</option>
+                        <option value="Mr.">Mr.</option>
+                        <option value="Ms.">Ms.</option>
+                        <option value="Mrs.">Mrs.</option>
+                        <option value="Dr.">Dr.</option>
+                        <option value="Dr.">Prof.</option>
+                        <!-- Add more options here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name"><span class="required">*</span> Name:</label>
+                    <input type="text" id="name" placeholder="Enter your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><span class="required">*</span> Email Id:</label>
+                    <input type="email" id="email" placeholder="Email address" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobile" ><span class="required">*</span> Mobile Number:</label>
+                    <select id="mobileCountry">
+                        <option value="0091">0091- INDIA</option>
+                    </select>
+                    <input type="tel" id="mobile" placeholder="Mobile Number" maxlength="10" required>
+                </div>
+            </section>
+
+            <section>
+                <h2>Login Details</h2>
+                <div class="form-group">
+                    <label for="userId"><span class="required">*</span> User Id:</label>
+                    <input type="text" id="userId" required>
+                </div>
+                <div class="form-group">
+                    <label for="password"><span class="required">*</span> Password:</label>
+                    <input type="password" id="password" required>
+                    <div id="passwordRequirements" class="requirements">
+                        Password must contain:
+                        <ul>
+                            <li id="capital">One capital letter</li>
+                            <li id="special">Special character</li>
+                            <li id="length">8 to 12 characters</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword"><span class="required">*</span> Confirm Password:</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="showPassword">
+                    <label for="showPassword">Show Password</label>
+                </div>
+            </section>
+
+            <div class="button-group">
+                <button type="reset">Reset</button>
+                <button type="submit">Register</button>
+                <a href="login.html">Do you have an account?</a>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

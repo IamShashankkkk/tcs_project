@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f7ff;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    background-color: #87CEEB;
+    color: white;
+    padding: 10px;
+    margin: -20px -20px 20px -20px;
+    text-align: center;
+}
+
+h2 {
+    color: #4682B4;
+    border-bottom: 1px solid #4682B4;
+    padding-bottom: 5px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    
+}
+
+label {
+    display: inline-table;
+    width: 150px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+input, select {
+    width: 200px;
+    padding: 5px;
+}
+
+.button-group {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+button[type="reset"] {
+    background-color: #f44336;
+    color: white;
+    border: none;
+}
+.required{
+    color: #f44336;
+}
+.requirements {
+    font-size: 0.8em;
+    color: #666;
+    margin-left: 160px;
+}
+
+.requirements ul {
+    padding-left: 20px;
+}
+
+.valid {
+    color: green;
+}
+
+.invalid {
+    color: red;
+}
+
+#showPassword {
+    width: auto;
+    margin-right: 5px;
+}
+
+#showPassword + label {
+    width: auto;
+}
