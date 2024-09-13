@@ -1,67 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register New User</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f7ff;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;   
+            margin: 0 auto;
+
+        }
+
+        h1 {
+            background-color: #87CEEB;
+            color: white;
+            padding: 15px;
+            margin: -20px -20px 20px -20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        h2 {
+            color: #4682B4;
+            border-bottom: 1px solid #4682B4;
+            padding-bottom: 5px;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .grid-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .section {
+            display: grid;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: grid;
+            grid-template-columns: 170px 1fr;
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        label {
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        input,
+        select {
+            width: 50%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        button[type="reset"] {
+            background-color: #f44336;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .required {
+            color: #f44336;
+            margin-left: 5px;
+        }
+
+        .requirements {
+            font-size: 0.8em;
+            color: #666;
+            grid-column: 2;
+            margin-top: 5px;
+        }
+
+        .requirements ul {
+            padding-left: 20px;
+            margin: 5px 0;
+        }
+
+        .valid {
+            color: green;
+        }
+
+        .invalid {
+            color: red;
+        }
+
+        /* Previous CSS styles remain the same */
+
+        .mobile-input {
+            display: flex;
+            align-items: center;
+            width: 50%;
+
+        }
+
+        .country-code {
+            background-color: #f0f0f0;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+
+        .mobile-input input {
+            border-left: none;
+            border-radius: 0 4px 4px 0;
+            flex-grow: 1;
+        }
+
+        .password-input {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-input input {
+            padding-right: 35px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 52%;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .toggle-password:hover {
+            color: #333;
+        }
+
+        /* Other styles remain the same */
+
+        .mobile-input {
+            display: flex;
+            align-items: center;
+        }
+
+        .country-code {
+            background-color: #f0f0f0;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+
+        .mobile-input input {
+            border-left: none;
+            border-radius: 0 4px 4px 0;
+            flex-grow: 1;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-link a {
+            color: #4682B4;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .form-group {
+                grid-template-columns: 1fr;
+            }
+
+            label {
+                text-align: left;
+                padding-right: 0;
+            }
+
+            .requirements {
+                grid-column: 1;
+            }
+        }
+    </style>
+
 </head>
+
 <body>
     <div class="container">
         <h1>Register New User</h1>
-        <form id="registrationForm">
-            <section>
+        <form id="registrationForm" class="grid-form">
+            <div class="section">
                 <h2>Consumer Details</h2>
                 <div class="form-group">
-                    <label for="consumerNumber"><span class="required">*</span> Consumer Number:</label>
-                    <input type="tel" id="consumerNumber" placeholder="Consumer Number" maxlength="13" required>
+                    <label for="consumerNumber">Consumer Number:<span class="required">*</span></label>
+                    <input type="text" id="consumerNumber" required>
                 </div>
                 <div class="form-group">
-                    <label for="billNumber"><span class="required">*</span> Bill Number:</label>
-                    <input type="tel" id="billNumber" placeholder="last 5 digits" maxlength="5" required>
+                    <label for="billNumber">Bill Number:<span class="required">*</span></label>
+                    <input type="text" id="billNumber" required>
                 </div>
-            </section>
+            </div>
 
-            <section>
+            <div class="section">
                 <h2>User Details</h2>
                 <div class="form-group">
                     <label for="title">Title:</label>
                     <select id="title">
-                        <option value="">Select</option>
-                        <option value="Mr.">Mr.</option>
-                        <option value="Ms.">Ms.</option>
-                        <option value="Mrs.">Mrs.</option>
-                        <option value="Dr.">Dr.</option>
-                        <option value="Dr.">Prof.</option>
-                        <!-- Add more options here -->
+                        <option value="Mr">Mr.</option>
+                        <option value="Ms">Ms.</option>
+                        <option value="Mrs">Mrs.</option>
+                        <option value="Dr">Dr.</option>
+                        <option value="Prof">Prof.</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="name"><span class="required">*</span> Name:</label>
-                    <input type="text" id="name" placeholder="Enter your Name" required>
+                    <label for="name">Name:<span class="required">*</span></label>
+                    <input type="text" id="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="email"><span class="required">*</span> Email Id:</label>
-                    <input type="email" id="email" placeholder="Email address" required>
+                    <label for="email">Email Id:<span class="required">*</span></label>
+                    <input type="email" id="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="mobile" ><span class="required">*</span> Mobile Number:</label>
-                    <select id="mobileCountry">
-                        <option value="0091">0091- INDIA</option>
-                    </select>
-                    <input type="tel" id="mobile" placeholder="Mobile Number" maxlength="10" required>
+                    <label for="mobile">Mobile Number:<span class="required">*</span></label>
+                    <div class="mobile-input">
+                        <span class="country-code">+91</span>
+                        <input type="tel" id="mobile" required pattern="[0-9]{10}" maxlength="10" inputmode="numeric">
+                    </div>
                 </div>
-            </section>
+            </div>
 
-            <section>
+            <div class="section">
                 <h2>Login Details</h2>
                 <div class="form-group">
-                    <label for="userId"><span class="required">*</span> User Id:</label>
-                    <input type="text" id="userId" required>
+                    <label for="customerId">Customer Id:<span class="required">*</span></label>
+                    <input type="text" id="customerId" required>
                 </div>
                 <div class="form-group">
-                    <label for="password"><span class="required">*</span> Password:</label>
-                    <input type="password" id="password" required>
+                    <label for="password">Password:<span class="required">*</span></label>
+                    <div class="password-input">
+                        <input type="password" id="password" required>
+                        <i class="fas fa-eye-slash toggle-password" data-target="password"></i>
+                    </div>
                     <div id="passwordRequirements" class="requirements">
                         Password must contain:
                         <ul>
@@ -71,23 +296,142 @@
                         </ul>
                     </div>
                 </div>
+
                 <div class="form-group">
-                    <label for="confirmPassword"><span class="required">*</span> Confirm Password:</label>
-                    <input type="password" id="confirmPassword" required>
+                    <label for="confirmPassword">Confirm Password:<span class="required">*</span></label>
+                    <div class="password-input">
+                        <input type="password" id="confirmPassword" required>
+                        <i class="fas fa-eye-slash toggle-password" data-target="confirmPassword"></i>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="checkbox" id="showPassword">
-                    <label for="showPassword">Show Password</label>
-                </div>
-            </section>
+            </div>
 
             <div class="button-group">
                 <button type="reset">Reset</button>
                 <button type="submit">Register</button>
-                <a href="login.html">Do you have an account?</a>
             </div>
         </form>
+        <p class="login-link">Do you have an account? <a href="login.html">Login</a></p>
     </div>
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("registrationForm");
+            const password = document.getElementById("password");
+            const confirmPassword = document.getElementById("confirmPassword");
+            const mobileInput = document.getElementById("mobile");
+            const emailInput = document.getElementById("email");
+            const customerIdInput = document.getElementById("customerId");
+            const capitalRequirement = document.getElementById("capital");
+            const specialRequirement = document.getElementById("special");
+            const lengthRequirement = document.getElementById("length");
+            const togglePasswordButtons = document.querySelectorAll(".toggle-password");
+
+            function validatePassword() {
+                const pw = password.value;
+                const hasCapital = /[A-Z]/.test(pw);
+                const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(pw);
+                const hasCorrectLength = pw.length >= 8 && pw.length <= 12;
+
+                capitalRequirement.className = hasCapital ? "valid" : "invalid";
+                specialRequirement.className = hasSpecial ? "valid" : "invalid";
+                lengthRequirement.className = hasCorrectLength ? "valid" : "invalid";
+
+                return hasCapital && hasSpecial && hasCorrectLength;
+            }
+
+            function validateUniqueFields() {
+                const customerId = customerIdInput.value;
+                const mobile = mobileInput.value;
+                const email = emailInput.value;
+
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    const userData = JSON.parse(localStorage.getItem(key));
+
+                    if (userData.customerId === customerId) {
+                        return { isValid: false, message: "Customer ID already exists." };
+                    }
+                    if (userData.mobile === mobile) {
+                        return { isValid: false, message: "Mobile number already registered." };
+                    }
+                    if (userData.email === email) {
+                        return { isValid: false, message: "Email address already registered." };
+                    }
+                }
+
+                return { isValid: true };
+            }
+
+            password.addEventListener("input", validatePassword);
+
+            // Mobile number input validation
+            mobileInput.addEventListener("input", function (e) {
+                this.value = this.value.replace(/\D/g, ''); // Remove non-digit characters
+                if (this.value.length > 10) {
+                    this.value = this.value.slice(0, 10); // Limit to 10 digits
+                }
+            });
+
+            // Password visibility toggle
+            togglePasswordButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const targetId = this.getAttribute("data-target");
+                    const targetInput = document.getElementById(targetId);
+
+                    if (targetInput.type === "password") {
+                        targetInput.type = "text";
+                        this.classList.remove("fa-eye-slash");
+                        this.classList.add("fa-eye");
+                    } else {
+                        targetInput.type = "password";
+                        this.classList.remove("fa-eye");
+                        this.classList.add("fa-eye-slash");
+                    }
+                });
+            });
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                if (!validatePassword()) {
+                    alert("Please ensure your password meets all requirements.");
+                    return;
+                }
+
+                if (password.value !== confirmPassword.value) {
+                    alert("Passwords do not match.");
+                    return;
+                }
+
+                const uniqueValidation = validateUniqueFields();
+                if (!uniqueValidation.isValid) {
+                    alert(uniqueValidation.message);
+                    return;
+                }
+
+                const consumerNumber = document.getElementById("consumerNumber").value;
+                const name = document.getElementById("name").value;
+                const mobile = mobileInput.value;
+                const email = emailInput.value;
+                const passwordValue = password.value;
+                const customerId = customerIdInput.value;
+
+                const userData = {
+                    customerId,
+                    password: passwordValue,
+                    name,
+                    email,
+                    mobile,
+                    consumerNumber
+                };
+
+                localStorage.setItem(customerId, JSON.stringify(userData));
+
+                alert("Registration successful!");
+                window.location.href = `registration-success.html?id=${customerId}&name=${name}&mobile=${mobile}`;
+            });
+        });
+    </script>
 </body>
+
 </html>
